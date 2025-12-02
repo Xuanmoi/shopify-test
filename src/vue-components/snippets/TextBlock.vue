@@ -65,9 +65,7 @@ onMounted(() => {
     'data-shopify-editor-section-id': container.dataset.shopifyEditorSectionId || '',
     'data-shopify-editor-block-id': container.dataset.shopifyEditorBlockId || '',
   }
-  
-  console.log('blockSettings.value:', blockSettings.value)
-  console.log('shopifyAttributes.value:', shopifyAttributes.value)
+
 })
 
 // 计算属性

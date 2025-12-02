@@ -63,7 +63,6 @@ class ProductRecommendations extends HTMLElement {
    */
   #loadRecommendations() {
     const { productId, recommendationsPerformed, sectionId, intent } = this.dataset;
-    console.log("loadRecommendations", this.dataset);
     const id = this.id;
 
     if (!productId || !id) {
@@ -78,7 +77,6 @@ class ProductRecommendations extends HTMLElement {
 
     this.#fetchCachedRecommendations(productId, sectionId, intent)
       .then((result) => {
-        console.log('result:', result);
         if (!result.success) {
           // The Theme Editor will place a section element element in the DOM whose section_id is not available
           // to the Section Renderer API. In this case, we can safely ignore the error.
@@ -149,6 +147,5 @@ class ProductRecommendations extends HTMLElement {
 }
 
 if (!customElements.get('product-recommendations')) {
-  console.log("没有获取到product-recommendations元素，进行定义")
   customElements.define('product-recommendations', ProductRecommendations);
 }

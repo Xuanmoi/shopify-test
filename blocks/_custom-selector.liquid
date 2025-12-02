@@ -1,0 +1,24 @@
+{% comment %} blocks里想要读取相应的配置 就从block读取 {% endcomment %}
+{% render 'custom-selector',
+  label: block.settings.label,
+  selector_options: block.settings.selector_options,
+%}
+
+{% schema %}
+{
+  "name": "Custom Selector",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label"
+    },
+    {
+      "type": "text",
+      "id": "selector_options",
+      "label": "Selector Options",
+    }
+  ]
+}
+{% endschema %}

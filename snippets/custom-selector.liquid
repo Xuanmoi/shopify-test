@@ -1,0 +1,30 @@
+{%- liquid
+  # 解析选项数据：格式为 "label1|value1,label2|value2"
+  assign options_array = options_data | split: ','
+  assign selector_json = selector_options
+  if selector_json == blank
+    assign selector_json = '[]'
+  endif
+-%}
+
+<div
+  class="custom-selector"
+  data-selector='{{ selector_json }}'
+  data-label='{{ label }}'
+  data-endpoint-a="/apps/service-a"
+  data-endpoint-b="/apps/service-b"
+>
+  {% comment %} 只是为了给服务端渲染用，实际上一到页面里就会被替换 {% endcomment %}
+  <label>
+    <span>{{ label }}</span>
+    <select>
+      {%- for option_pair in options_array -%}
+        {%- assign parts = option_pair | split: '|' -%}
+        {%- if parts.size == 2 -%}
+          <option value="{{ parts[1] | strip }}">{{ parts[0] | strip }}</option>
+        {%- endif -%}
+      {%- endfor -%}
+    </select>
+  </label>
+</div>
+<script type="module" src="{{ 'vue/custom-selector.js' | asset_url }}"></script>
