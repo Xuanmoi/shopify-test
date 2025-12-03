@@ -189,7 +189,7 @@
             "custom_selector_R3rGDr": {
               "type": "custom-selector",
               "settings": {
-                "label": "选择请求类型11",
+                "label": "选择请求类型11 - 在线编辑",
                 "selector_options": "[{\"label\": \"请求 A\", \"value\": \"A\"}, {\"label\": \"请求 C\", \"value\": \"C\"}]"
               },
               "blocks": {}
