@@ -190,7 +190,25 @@
               "type": "custom-selector",
               "settings": {
                 "label": "选择请求类型11",
-                "selector_options": "[{\"label\": \"请求 A\", \"value\": \"A\"}, {\"label\": \"请求 B\", \"value\": \"B\"}]"
+                "selector_options": "[{\"label\": \"请求 A\", \"value\": \"A\"}, {\"label\": \"请求 C\", \"value\": \"C\"}]"
+              },
+              "blocks": {}
+            },
+            "text_vue_QqOiGy": {
+              "type": "text-vue",
+              "settings": {
+                "text": "<p>This is a Vue-powered text block1111</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -254,24 +272,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "text_vue_QqOiGy": {
-              "type": "text-vue",
-              "settings": {
-                "text": "<p>This is a Vue-powered text block1111</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -279,9 +279,9 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "custom_selector_R3rGDr",
+            "text_vue_QqOiGy",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq",
-            "text_vue_QqOiGy"
+            "text_aEtTtq"
           ]
         }
       },
