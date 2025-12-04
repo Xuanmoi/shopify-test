@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-block-container">
     <component
       :is="element"
       :class="classes"
@@ -15,6 +15,9 @@
     </component>
     xx {{ text }}
     <div v-show="false"> test my new text content</div>
+    <div>
+      <img src="https://cdn.pixabay.com/photo/2021/08/03/14/07/river-6519572_1280.jpg" alt="test image" width="100" height="100" aria-hidden="true"/>
+    </div>
   </div>
 </template>
 
@@ -29,7 +32,7 @@ const props = defineProps({
 const blockSettings = ref({})
 const shopifyAttributes = ref({})
 
-onMounted(() => {
+onMounted(async () => {
   // 获取当前自定义元素的 DOM 节点
   const instance = getCurrentInstance()
   const element = instance?.vnode?.el
@@ -66,6 +69,13 @@ onMounted(() => {
     'data-shopify-editor-block-id': container.dataset.shopifyEditorBlockId || '',
   }
 
+  // 获取商品详情的接口
+  const pathname = window.location.pathname
+  const productId = pathname.split('/').pop()
+  console.log(productId)
+  const response = await fetch(window.Shopify.routes.root + `products/${productId}.js`)
+  const data = await response.json()
+  console.log(data)
 })
 
 // 计算属性
