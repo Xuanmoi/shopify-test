@@ -1,30 +1,10 @@
-import { createApp } from 'vue'
-import CustomSelector from '@/vue-components/snippets/CustomSelector.vue'
+import { defineCustomElement } from 'vue'
+import CustomSelector from '../vue-components/snippets/CustomSelector.vue'
 
-function mountAll(rootSelector = '.custom-selector') {
-  document.querySelectorAll(rootSelector).forEach((root) => {
-    if (root.__vue_app__) return
-    const app = createApp(CustomSelector, { root })
-    app.mount(root)
-    root.__vue_app__ = app
-  })
+// 将 Vue 组件编译为 Web Component
+const CustomSelectorElement = defineCustomElement(CustomSelector)
+
+// 注册自定义元素
+if (!customElements.get('custom-selector-vue')) {
+  customElements.define('custom-selector-vue', CustomSelectorElement)
 }
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => mountAll())
-} else {
-  mountAll()
-}
-
-// Shopify 主题编辑器中 section reload 也要重新挂载
-document.addEventListener('shopify:section:load', () => mountAll())
-document.addEventListener('shopify:section:unload', (event) => {
-  event.target
-    ?.querySelectorAll('.custom-selector')
-    .forEach((root) => {
-      if (root.__vue_app__) {
-        root.__vue_app__.unmount()
-        delete root.__vue_app__
-      }
-    })
-})

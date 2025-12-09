@@ -16,7 +16,14 @@ const label = ref(null);
 const selectorData = ref(null);
 
 const props = defineProps({
-  root: HTMLElement,
+  dataSelector: {
+    type: String,
+    default: '[]',
+  },
+  dataLabel: {
+    type: String,
+    default: '',
+  },
 })
 
 const handleChange = () => {
@@ -24,8 +31,10 @@ const handleChange = () => {
 }
 
 onMounted(() => {
-  const root = props.root;
-  label.value = root.dataset.label
-  selectorData.value = JSON.parse(root.dataset.selector || '[]')
+  console.log("custom selector mounted")
+  label.value = props.dataLabel;
+  selectorData.value = JSON.parse(props.dataSelector || '[]');
+  console.log('label', label.value)
+  console.log('selectorData', selectorData.value)
 })
 </script>
