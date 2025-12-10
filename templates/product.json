@@ -190,14 +190,15 @@
               "type": "custom-selector",
               "settings": {
                 "label": "选择请求类型11",
-                "selector_options": "[{\"label\": \"请求 A\", \"value\": \"A\"}, {\"label\": \"请求 C\", \"value\": \"C\"}]",
+                "selector_options": "[{\"label\": \"请求 A\", \"value\": \"A\"}, {\"label\": \"请求 C\", \"value\": \"C\"}]"
               },
               "blocks": {}
             },
             "text_vue_QqOiGy": {
               "type": "text-vue",
+              "name": "Text (Vue)111",
               "settings": {
-                "text": "<p>This is a Vue-powered text block1111</p>",
+                "text": "<p>This is a Vue-powered text block1111</p>"
               },
               "blocks": {}
             },
