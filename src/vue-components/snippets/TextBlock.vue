@@ -19,7 +19,6 @@
   
   watchEffect(() => {
     const raw = props.blockSettings;
-    console.log('raw', raw)
     if (typeof raw === 'string') {
       try {
         settings.value = JSON.parse(raw)
@@ -30,12 +29,18 @@
     } else {
       settings.value = raw || {}
     }
-    console.log('settings', settings.value)
   })
   
   const text = computed(() => settings.value.text || '')
   onMounted(() => {
     console.log('attrs', attrs)
+    // 参考资料：https://shopify.dev/docs/api/ajax
+    // 如果我希望在组件里获取商品的信息，我可以通过接口，例如 
+    fetch(`${window.location.pathname}.js`)
+    .then(response => response.json())
+    .then(product => {
+      console.log('product', product)
+    })
   })
   </script>
   
